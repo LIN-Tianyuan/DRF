@@ -2,6 +2,7 @@ from django.views import View
 from django.http import JsonResponse
 from .models import BookInfo
 import json
+from rest_framework.generics import ListAPIView
 
 # Create your views here.
 class BooksView(View):

@@ -1,3 +1,5 @@
+from demo.book_drf.serializer import BookSerializer
+
 # DRF
 DRF(Django Restful Framework) 
 ## 1. Non-separation Quick Build
@@ -86,3 +88,68 @@ urlpatterns = [
 </html>
 ```
 
+## 2. DRF
+```bash
+pip install djangorestframework
+```
+```python
+INSTALLED_APPS = [
+    ...,
+    'rest_framework'
+]
+```
+## 3. Serializer
+ - Define the Serializer
+ - Nested serialization returns
+   - PrimaryKeyRelatedField
+   - StringRelatedField
+   - Define the serializer separately
+ - Use in the view
+   - ser=BookSerializer(book)   many=True
+   - ser.data
+## 4. Deserialization
+   - Validation
+     - Field option validation
+       - max_length
+       - min_length
+       - max_value
+       - min_value
+       - default
+       - required
+       - read_only(Fields are only returned for serialization and are no longer validated)
+       - write_only(Fields only participate in deserialization and are no longer returned front-end)
+     - Custom Method Validation
+       - Single field validation
+       ```python
+       def validate_name(self, value):
+          if value == 'python':
+              raise serializers.ValidationError("The title of the book can't be Python.")
+          return value
+       ```
+       - Multiple field validation
+        ```python
+        def validate(self, attrs):
+          if attrs['readcount'] > attrs['commentcount']:
+              raise serializers.ValidationError("Read more than commented.")
+          return attrs
+        ```
+       - Validate in view
+        ```python
+        ser=BookSerializer(data=data_dict)
+        ser.isvalid()
+        ser.errors   # View Authentication Status Information
+        ser.validated_data   # Get validated field data
+        ```
+   - Save Update
+     - save
+       - create
+     - update
+       - update
+     - Call Save Updates in a View
+       - save()
+## 5. Model Class Serializer(ModelSerializer)
+Automatic generation of serializer fields
+
+Implemented create and update
+
+Generate unique judgment validation methods
