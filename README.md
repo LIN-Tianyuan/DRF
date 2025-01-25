@@ -153,3 +153,25 @@ Automatic generation of serializer fields
 Implemented create and update
 
 Generate unique judgment validation methods
+## 6. View class
+ - Two basic class views
+### 6.1 APIView
+ - Inherit Django's View class
+   - Permissions
+   - Authentication
+   - Flow limiting
+### 6.2 GenericAPIView
+ - Inherited from APIView class
+   - Pagination
+   - Filter Sort
+   - Specifying query set
+     ```python
+     books = Book.objects.all()
+     for book in books:
+        print(book.name)
+     ```
+     ```python
+     queryset = ...(queryset)
+     ```
+   - Specifying the serializer
+     - serializer_class=...(serializer)
