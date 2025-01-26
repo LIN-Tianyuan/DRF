@@ -187,3 +187,19 @@ Generate unique judgment validation methods
  - DestroyModelMixin
    - Delete data
 ### 6.3 SubClasses of expansion class
+## 7. View Collection 
+ - 1. Route Matching Rules
+ - 2. Methods defined in a view are no longer defined as requested
+### 7.1 Two basic view sets
+ - ViewSet
+   - Inherited from APIView
+ - GenericViewSet
+   - Inherited from GenericAPIView
+### 7.2 Two extended view sets
+ - ModelViewSet
+   - Inherited from GenericAPIView
+   - Inherited from five extension classes
+ - ReadOnlyModelViewSet
+   - Inherited from GenericAPIView
+   - Inherited from ListModelMixin
+   - Inheried from RetrieveModelMixin
