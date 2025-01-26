@@ -1,10 +1,9 @@
 from django.http import JsonResponse
-from django.views import View
-from books.models import BookInfo
-from .serializer import BookSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-import json
+
+from books.models import BookInfo
+from .serializer import BookSerializer
 
 # Create your views here.
 class Books(APIView):
