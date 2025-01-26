@@ -203,3 +203,4 @@ Generate unique judgment validation methods
    - Inherited from GenericAPIView
    - Inherited from ListModelMixin
    - Inheried from RetrieveModelMixin
+ - The method of automatic routing generation must be used in conjunction with a view set.
