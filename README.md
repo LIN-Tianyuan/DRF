@@ -154,13 +154,13 @@ Implemented create and update
 
 Generate unique judgment validation methods
 ## 6. View class
- - Two basic class views
-### 6.1 APIView
+### 6.1 Two basic class views
+#### 6.1.1 APIView
  - Inherit Django's View class
    - Permissions
    - Authentication
    - Flow limiting
-### 6.2 GenericAPIView
+#### 6.1.2 GenericAPIView
  - Inherited from APIView class
    - Pagination
    - Filter Sort
@@ -175,3 +175,14 @@ Generate unique judgment validation methods
      ```
    - Specifying the serializer
      - serializer_class=...(serializer)
+### 6.2 Five Expansion Classes(Use with GenericAPIView)
+ - ListModelMixin
+   - Get multiple data objects
+ - CreateModelMixin
+   - Save data
+ - RetrieveModelMixin
+   - Get single data object
+ - UpdateModelMixin
+   - Update data
+ - DestroyModelMixin
+   - Delete data
