@@ -52,10 +52,17 @@ urlpatterns = [
     path('books_drf/<int:pk>/', viewset_view.BookDRFView.as_view({'put': 'update'})),
 ]
 """
-
+"""
 from . import genericviewset_view
 urlpatterns = [
     path('books_drf/', genericviewset_view.Books.as_view({'get': 'list', 'post': 'create'})),
     # path('book_drf/', viewset_view.Book.as_view()),
     path('books_drf/<int:pk>/', genericviewset_view.BookDRFView.as_view({'put': 'update'})),
+]
+"""
+from . import modelviewset_view
+urlpatterns = [
+    path('books_drf/', modelviewset_view.Books.as_view({'get': 'list', 'post': 'create'})),
+    # path('book_drf/', viewset_view.Book.as_view()),
+    path('books_drf/<int:pk>/', modelviewset_view.Books.as_view({'put': 'update', 'get': 'retrieve', 'delete': 'destroy'})),
 ]
