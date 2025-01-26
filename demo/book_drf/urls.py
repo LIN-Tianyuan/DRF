@@ -44,9 +44,18 @@ urlpatterns = [
     path('books_drf/<int:pk>/', childmixin_view.BookDRFView.as_view()),
 ]
 """
+"""
 from . import viewset_view
 urlpatterns = [
     path('books_drf/', viewset_view.Books.as_view({'get': 'list', 'post': 'create'})),
     # path('book_drf/', viewset_view.Book.as_view()),
     path('books_drf/<int:pk>/', viewset_view.BookDRFView.as_view({'put': 'update'})),
+]
+"""
+
+from . import genericviewset_view
+urlpatterns = [
+    path('books_drf/', genericviewset_view.Books.as_view({'get': 'list', 'post': 'create'})),
+    # path('book_drf/', viewset_view.Book.as_view()),
+    path('books_drf/<int:pk>/', genericviewset_view.BookDRFView.as_view({'put': 'update'})),
 ]
