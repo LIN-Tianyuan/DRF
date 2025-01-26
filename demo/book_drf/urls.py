@@ -1,7 +1,5 @@
 
 from django.urls import path
-from rest_framework.routers import SimpleRouter
-
 from book_drf import modelviewset_view
 
 """
@@ -71,8 +69,19 @@ urlpatterns = [
     path('books_drf/<int:pk>/', modelviewset_view.Books.as_view({'put': 'update', 'get': 'retrieve', 'delete': 'destroy'})),
 ]
 """
+
+"""
+from rest_framework.routers import SimpleRouter
 urlpatterns = []
 router = SimpleRouter()
+router.register('books_drf', modelviewset_view.Books, basename='books')
+print(router.urls)
+urlpatterns += router.urls
+"""
+
+from rest_framework.routers import DefaultRouter
+urlpatterns = []
+router = DefaultRouter()
 router.register('books_drf', modelviewset_view.Books, basename='books')
 print(router.urls)
 urlpatterns += router.urls
