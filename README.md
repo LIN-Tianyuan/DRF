@@ -186,3 +186,4 @@ Generate unique judgment validation methods
    - Update data
  - DestroyModelMixin
    - Delete data
+### 6.3 SubClasses of expansion class
