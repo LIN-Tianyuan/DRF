@@ -161,10 +161,14 @@ REST_FRAMEWORK = {
 }
 """
 REST_FRAMEWORK = {
+    # View class flow limiting
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.ScopedRateThrottle',
+    ),
     # Specify the number of times to limit the flow
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '3/day',
-        'user': '4/day'
+        'contacts': '4/day',
+        'uploads': '2/day'
     }
 
 }

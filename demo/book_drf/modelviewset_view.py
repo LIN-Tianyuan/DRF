@@ -17,7 +17,9 @@ class Books(ModelViewSet):
     # Permission
     permission_classes = (IsAuthenticated, )
     # Throttling
-    throttle_classes = [UserRateThrottle]
+    # throttle_classes = [UserRateThrottle]
+
+    throttle_scope = 'uploads'
 
     def get_serializer_class(self):
         if self.action == 'list':

@@ -6,7 +6,9 @@ from book_drf.serializer import BookSerializer
 
 # Create your views here.
 class Books(ListCreateAPIView):
-
+    throttle_scope = 'contacts'
+    queryset = BookInfo.objects.all()
+    serializer_class = BookSerializer
     queryset = BookInfo.objects.all()   # Specify the query set data used by the current class view
     serializer_class = BookSerializer   # Specify the serializer used by the current class view
 
