@@ -5,9 +5,17 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.throttling import UserRateThrottle
 from rest_framework.filters import OrderingFilter
+from rest_framework.pagination import PageNumberPagination
 
 from book_drf.serializer import BookSerializer
 from books.models import BookInfo
+
+class PageNum(PageNumberPagination):
+    """
+    Customizable Pager
+    """
+    page_size_query_param = 'page_size' # Specify the parameters that control the number of pages per
+    max_page_size = 6   # Specify the maximum number of returns per page
 
 
 class Books(ModelViewSet):
@@ -28,7 +36,8 @@ class Books(ModelViewSet):
     filter_backends = [OrderingFilter]
     # Specify Sort Fields
     ordering_fields = ('id', 'readcount')
-
+    # Specify pagination
+    pagination_class = PageNum
 
     def get_serializer_class(self):
         if self.action == 'list':
