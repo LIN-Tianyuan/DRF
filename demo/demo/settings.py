@@ -175,7 +175,14 @@ REST_FRAMEWORK = {
 
 }
 """
+"""
 REST_FRAMEWORK = {
     # Filter
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
+"""
+
+REST_FRAMEWORK = {
+    # Global Exception Handling
+    'EXCEPTION_HANDLER': 'book_drf.utils.exception_handler'
 }
