@@ -172,9 +172,12 @@ Generate unique judgment validation methods
      ```
      ```python
      queryset = ...(queryset)
+     # get_object : Get a single data object in a query set
+     # get_queryset : Get all query set data
      ```
    - Specifying the serializer
      - serializer_class=...(serializer)
+       - get_serializer: Get serializer object
 ### 6.2 Five Expansion Classes(Use with GenericAPIView)
  - ListModelMixin
    - Get multiple data objects
@@ -187,6 +190,10 @@ Generate unique judgment validation methods
  - DestroyModelMixin
    - Delete data
 ### 6.3 SubClasses of expansion class
+ - CreateAPIView
+   - Inherits from CreateModelMixin and GenericAPIView
+ - ListCreateAPIView
+ - ...
 ## 7. View Collection 
  - 1. Route Matching Rules
  - 2. Methods defined in a view are no longer defined as requested
@@ -204,3 +211,9 @@ Generate unique judgment validation methods
    - Inherited from ListModelMixin
    - Inheried from RetrieveModelMixin
  - The method of automatic routing generation must be used in conjunction with a view set.
+## 8. Function
+```bash
+python3 manage.py createsuperuser
+Username: admin
+Password: admin
+```
