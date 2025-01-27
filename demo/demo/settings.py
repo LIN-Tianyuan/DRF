@@ -141,6 +141,30 @@ REST_FRAMEWORK = {
     # Permission
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
-    )
+    ),
 }
 """
+
+"""
+REST_FRAMEWORK = {
+    # user limit
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ),
+    # Specify the number of times to limit the flow
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '3/day',
+        'user': '4/day'
+    }
+
+}
+"""
+REST_FRAMEWORK = {
+    # Specify the number of times to limit the flow
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '3/day',
+        'user': '4/day'
+    }
+
+}
