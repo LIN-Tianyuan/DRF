@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.throttling import UserRateThrottle
-from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
 
 from book_drf.serializer import BookSerializer
 from books.models import BookInfo
@@ -22,7 +22,12 @@ class Books(ModelViewSet):
     # throttle_scope = 'uploads'
 
     # Filter fields
-    filterset_fields = ('name', 'readcount')
+    # filterset_fields = ('name', 'readcount')
+
+    # Specify the sorting method class
+    filter_backends = [OrderingFilter]
+    # Specify Sort Fields
+    ordering_fields = ('id', 'readcount')
 
 
     def get_serializer_class(self):
