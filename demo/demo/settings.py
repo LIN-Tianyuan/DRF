@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'book.apps.BookConfig',
     'books.apps.BooksConfig',
-    'rest_framework'
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -160,6 +161,7 @@ REST_FRAMEWORK = {
 
 }
 """
+"""
 REST_FRAMEWORK = {
     # View class flow limiting
     'DEFAULT_THROTTLE_CLASSES': (
@@ -171,4 +173,9 @@ REST_FRAMEWORK = {
         'uploads': '2/day'
     }
 
+}
+"""
+REST_FRAMEWORK = {
+    # Filter
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
